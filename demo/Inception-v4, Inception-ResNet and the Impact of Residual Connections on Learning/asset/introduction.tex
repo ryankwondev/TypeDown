@@ -1,0 +1,60 @@
+\section{Introduction}
+
+Since the 2012 ImageNet competition~\cite{russakovsky2014imagenet}
+winning entry by Krizhevsky et al~\cite{krizhevsky2012imagenet},
+their network ``AlexNet'' has been successfully applied to a larger variety of
+computer vision tasks, for example to object-detection~\cite{girshick2014rcnn},
+segmentation~\cite{long2015fully}, human pose estimation~\cite{toshev2014deeppose},
+video classification~\cite{karpathy2014large}, object
+tracking~\cite{wang2013learning}, and superresolution~\cite{dong2014learning}.
+These examples are but a few of all the applications to which deep
+convolutional networks have been very successfully applied ever since.
+
+In this work we study the combination of the two most recent ideas:
+Residual connections introduced by He et al. in ~\cite{he2015deep} and the latest
+revised version of the Inception architecture~\cite{szegedy2015rethinking}.
+In~\cite{he2015deep}, it is argued that residual connections are of inherent
+importance for training very deep architectures. Since Inception networks
+tend to be very deep, it is natural to replace the
+filter concatenation stage of the Inception architecture with residual connections. This
+would allow Inception to reap all the benefits of the residual approach
+while retaining its computational efficiency.
+
+Besides a straightforward integration, we have also studied whether
+Inception itself can be made more efficient by making it deeper and wider.
+For that purpose, we designed a new version named Inception-v4
+which has a more uniform simplified architecture and more inception modules
+than Inception-v3. Historically, Inception-v3 had inherited a lot of the
+baggage of the earlier incarnations. The technical constraints chiefly came from
+the need for partitioning the model for distributed training using
+DistBelief~\cite{dean2012large}.
+Now, after migrating our training setup to TensorFlow~\cite{tensorflow2015-whitepaper}
+these constraints have been lifted, which allowed us to simplify the architecture
+significantly. The details of that simplified architecture are described in Section \ref{arch}.
+
+In this report, we will compare the two pure Inception variants,
+Inception-v3 and v4, with similarly expensive hybrid Inception-ResNet
+versions. Admittedly, those models were picked in a somewhat ad hoc manner
+with the main constraint being that the parameters and computational
+complexity of the models should be somewhat similar to the cost
+of the non-residual models. In fact we have tested bigger and wider
+Inception-ResNet variants and they performed very similarly on the
+ImageNet classification challenge ~\cite{russakovsky2014imagenet}
+dataset.
+
+The last experiment reported here is an evaluation of an ensemble of
+all the best performing models  presented here. As it was
+apparent that both Inception-v4 and Inception-ResNet-v2 performed
+similarly well, exceeding state-of-the art single frame performance
+on the ImageNet validation dataset, we wanted to see how a combination
+of those pushes the state of the art on this well studied dataset.
+Surprisingly, we found that gains on the single-frame performance do not
+translate into similarly large gains on ensembled performance. Nonetheless,
+it still allows us to report 3.1\% top-5 error on the validation set with
+four models ensembled setting a new state of the art, to our best
+knowledge.
+
+In the last section, we study some of the classification failures and
+conclude that the ensemble still has not reached the label noise of
+the annotations on this dataset and there is still room for improvement
+for the predictions.

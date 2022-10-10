@@ -1,0 +1,10 @@
+\section{Training Methodology}
+We have trained our networks with stochastic gradient utilizing the
+TensorFlow~\cite{tensorflow2015-whitepaper} distributed machine learning system
+using $20$ replicas running each on a NVidia Kepler GPU.
+Our earlier experiments used momentum~\cite{icml2013_sutskever13} with a
+decay of $0.9$, while our best models were achieved using RMSProp~\cite{rmsprop}
+with decay of $0.9$ and $\epsilon=1.0$. We used a learning rate of $0.045$,
+decayed every two epochs using an exponential rate of $0.94$.
+Model evaluations are performed using a running average of the parameters
+computed over time.

@@ -1,0 +1,137 @@
+\section{Experimental Results and Comparisons}
+\begin{table}
+{\small
+ \begin{center}
+   \begin{tabular}[H]{|l|c|c|c|}
+   \hline
+   {\bf Network} & \stackanchor{\bf Top-1}{Error} & \stackanchor{\bf Top-5}{Error} & \stackanchor{\bf Cost}{Bn Ops} \\
+   \hline\hline
+   GoogLeNet~\cite{szegedy2015going} & 29\% & 9.2\% & 1.5 \\
+   \hline
+   BN-GoogLeNet & 26.8\% & - & {\bf 1.5} \\
+   \hline
+   BN-Inception~\cite{ioffe2015batch} & 25.2\% & 7.8 & 2.0 \\
+   \hline
+   Inception-v2 & 23.4\% & - & 3.8 \\
+   \hline
+   \shortstack[l]{Inception-v2 \\RMSProp} & 23.1\% & 6.3 & 3.8 \\
+   \hline
+   \shortstack[l]{Inception-v2 \\ Label Smoothing} & 22.8\% & 6.1 & 3.8 \\
+   \hline
+   \shortstack[l]{Inception-v2 \\ Factorized $7\times 7$} & 21.6\% & 5.8 & 4.8 \\
+   \hline
+   \stackanchor{Inception-v2}{BN-auxiliary} & {\bf 21.2}\% & {\bf 5.6}\% & 4.8 \\
+   %% \hline
+   %% BN-Inception-v3 & 23.7\% & 3.8 & ??? & 3.8 \\
+   \hline
+   \end{tabular}
+ \end{center}
+ }
+\caption{Single crop experimental results comparing the cumulative effects of
+ the various contributing   factors. We compare our numbers with the best
+ published single-crop inference for Ioffe et
+ al.~\cite{ioffe2015batch}. For the ``Inception-v2'' lines, the
+ changes are cumulative and each subsequent line includes the new change in
+ addition to the previous ones. The last line corresponds to the combination of all the changes,
+ which we refer to as ``Inception-v3'' below.  Unfortunately, He et
+ al.~\cite{he2015delving} report only the 10-crop evaluation results, but not
+ single crop results. We report those in Table~\ref{resultsmulticrop}
+ below.
+}
+ \label{results}
+\end{table}
+Table~\ref{results} shows the experimental results of the recognition
+performance of our proposed architecture (Inception-v2) as described in
+Section~\ref{revisited}. Each Inception-v2 line shows the result of the
+cumulative changes including the highlighted new modification plus all the
+earlier ones. Label Smoothing refers to the method described in Section~\ref{smoothing}.
+Factorized $7\times 7$ includes a change that factorizes the first $7\times 7$
+convolutional layer into a sequence of $3\times 3$ convolutional layers.
+BN-auxiliary refers to the version in which the fully connected layer
+of the auxiliary classifier is also batch-normalized, not just the convolutions.
+We are referring to the model in last row of Table~\ref{results} as Inception-v3
+and evaluate its performance in the multi-crop and ensemble settings.
+
+All our evaluations are done on the 48238 non-blacklisted examples on the
+ILSVRC-2012 validation set, as suggested by ~\cite{russakovsky2014imagenet}.
+We have evaluated all the 50000 examples as well and the results were roughly
+0.1\% worse in top-5 error and around 0.2\% in top-1
+error. In the upcoming version of this paper, we will verify our ensemble
+result on the test set, but at the time of our last evaluation of
+BN-Inception in spring~\cite{ioffe2015batch} indicates that the test and
+validation set error tends to correlate very well.
+
+\begin{table}
+{\small
+ \begin{center}
+   \begin{tabular}[H]{|l|c|c|c|}
+   \hline
+   {\bf Network} &
+   \stackanchor{\bf Crops}{\bf Evaluated} &
+   \stackanchor{\bf Top-5}{\bf Error} &
+   \stackanchor{\bf Top-1}{\bf Error} \\
+   \hline\hline
+   GoogLeNet~\cite{szegedy2015going} & 10 & - & 9.15\% \\
+   \hline
+   GoogLeNet~\cite{szegedy2015going} & 144 & - & 7.89\% \\
+   \hline
+   VGG~\cite{simonyan2014very} & - & 24.4\% & 6.8\% \\
+   \hline
+   BN-Inception~\cite{ioffe2015batch} & 144 & 22\% & 5.82\% \\
+   \hline
+   PReLU~\cite{he2015delving} & 10 & 24.27\% & 7.38\% \\
+   \hline
+   PReLU~\cite{he2015delving} & - & 21.59\% & 5.71\% \\
+   \hline
+   Inception-v3 & 12 & 19.47\% & 4.48\% \\
+   \hline
+   Inception-v3 & 144 & \bf{18.77\%} & \bf{4.2\%} \\
+   \hline
+   \end{tabular}
+ \end{center}
+ }
+\caption{Single-model, multi-crop experimental results comparing the cumulative effects on
+ the various contributing   factors. We compare our numbers with the best
+ published single-model inference results on the ILSVRC 2012 classification
+ benchmark.} \label{resultsmulticrop}
+\end{table}
+
+\begin{table}
+{\small
+ \begin{center}
+   \begin{tabular}[H]{|l|c|c|c|c|}
+   \hline
+   {\bf Network} &
+   \stackanchor{\bf Models}{\bf Evaluated} &
+   \stackanchor{\bf Crops}{\bf Evaluated} &
+   \stackanchor{\bf Top-1}{\bf Error} &
+   \stackanchor{\bf Top-5}{\bf Error} \\
+   \hline\hline
+   VGGNet~\cite{simonyan2014very} & 2 & - & 23.7\% & 6.8\% \\
+   \hline
+   GoogLeNet~\cite{szegedy2015going} & 7 & 144 & - & 6.67\% \\
+   \hline
+   PReLU~\cite{he2015delving} & - & - & - & 4.94\% \\
+   \hline
+   BN-Inception~\cite{ioffe2015batch} & 6 & 144 & 20.1\% & 4.9\% \\
+   \hline
+   Inception-v3 & 4 & 144 & {\bf 17.2\%} & {\bf 3.46\%} \\
+   \hline
+   \end{tabular}
+ \end{center}
+}
+\caption{Ensemble evaluation results comparing multi-model, multi-crop
+reported results. Our numbers are compared with the best  published
+ensemble inference results on the ILSVRC 2012 classification benchmark.}
+\label{resultsensemble}
+\end{table}
+
+
+%% \section{Qualitative Analysis of the Improvements}
+
+%% Here we analyze the gains and losses with respect to the original GoogLeNet
+%% submission and one state-of-the-art VGG network.
+
+%% TODO(Generate classes with most gains/losses)
+%% TODO(Examples of gains/losses on ImageNet)
+%% TODO(Ensemble results with 4 or 5 of the last generation Inception on ImageNet)
