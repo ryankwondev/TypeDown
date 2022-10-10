@@ -17,6 +17,8 @@ This is reason why we started this project, named **TypeDown**
 
 ### Specs
 
+> Markdown + CSS + $LaTeX$ + Some weird syntaxes
+
 Typedown is fully-compative with Markdown. But in Typedown, you can use inline styling.
 
 ```
