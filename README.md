@@ -75,3 +75,12 @@ This can let you use A4 paper without typing
 ```
 this.
 
+Make custom style and using-inline is also available.
+
+```
+@custom-style-a {
+  font-size: 15px;
+}
+
+### You can overide text using two single-column like ''this''@custom-style-a
+```
