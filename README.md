@@ -1,3 +1,4 @@
 # Typedown
 
-markdown-compatible markup language for writing paper
+| Markdown-compative Markup Language & Compile Toolkit for Writing Non-fiction
+
