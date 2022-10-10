@@ -12,5 +12,15 @@ This is reason why we started this project, named **TypeDown**
 
 ### Currently...
 
-- Making specs before develop compiler. 
+- Making [specs](https://github.com/ryankwondev/TypeDown/blob/main/demo-spec.td) before develop compiler. 
 - Will make \*.td -> \*.pdf, \*.html.
+
+### Specs
+
+Typedown is fully-compative with Markdown. But in Typedown, you can use inline styling.
+
+```css
+@h1 = {
+  font-family: Pretendard, Times New Roman;
+}
+```
