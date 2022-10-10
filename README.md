@@ -4,6 +4,5 @@
 
 ### Currently Developing...
 
-- \*.td to PDF
-
-- \*.td to HTML
+- \*.td -> PDF
+- \*.td -> HTML
