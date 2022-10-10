@@ -1,6 +1,8 @@
 /* css-like? asdf.. have to think about it more */
 
-// using format mla;
+using format MLA;
+
+using reference IEEE;
 
 @metadata = {
   title: Dynamo: Amazon’s Highly Available Key-value Store;
