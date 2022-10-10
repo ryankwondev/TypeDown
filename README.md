@@ -19,8 +19,19 @@ This is reason why we started this project, named **TypeDown**
 
 Typedown is fully-compative with Markdown. But in Typedown, you can use inline styling.
 
-```css
+```
 @h1 = {
   font-family: Pretendard, Times New Roman;
 }
 ```
+
+There is pre-declared syntaxes like above `@h1`.
+
+|Syntax|Declared as...|
+|---:|:---|
+|`#`|`@h1`|
+|`##`|`@h2`|
+|`###`|`@h3`|
+|`####`|`@h4`|
+|`#####`|`@h5`|
+|`######`|`@h6`|
