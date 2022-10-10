@@ -10,7 +10,7 @@ So, we thought that "what if there is typesetting system in markdown to write pa
 
 This is reason why we started this project, named **TypeDown**
 
-### Currently Developing...
+### Currently...
 
-- \*.td -> PDF
-- \*.td -> HTML
+- Making specs before develop compiler. 
+- Will make \*.td -> \*.pdf, \*.html.
