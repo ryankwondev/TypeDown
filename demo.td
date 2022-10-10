@@ -2,14 +2,14 @@
 
 // using format mla;
 
-metadata = {
+@metadata = {
   title: Dynamo: Amazon’s Highly Available Key-value Store;
   author: Giuseppe DeCandia, et al.;
   date: 2022-10-10;
   // datetime: ?;
 {
 
-paper = {
+@paper = {
   size: 210mm * 297mm;
   
   /* argument(?) 개수에 따른 적용 범위 */
@@ -21,7 +21,22 @@ paper = {
   column-line: true;
 }
 
-h1 = { // when using '#'
+@header = {
+  ...
+}
+
+@footer = {
+  ...
+}
+
+/* really...? */
+@custom-style-name = {
+  /* um... code block? */
+  font-family: Consolas
+  font-size: 10px;
+}
+
+@h1 = { // when using '#'
   font-family: Times New Roman;
   font-size: 15px;
   font-weight: bold;
@@ -33,7 +48,7 @@ h1 = { // when using '#'
 
 # Dynamo: Amazon’s Highly Available Key-value Store
 
-h2 = {
+@h2 = {
   font-family: Times New Roman;
   font-size: 13px;
   text-decoration: underline;
@@ -46,7 +61,7 @@ h2 = {
 
 ## Amazon.com
 
-h3 = {
+@h3 = {
   /* use pre-declared style */
   using h2;
   
@@ -57,7 +72,7 @@ h3 = {
 
 ### Abstract
 
-text = {
+@text = {
   font-family: Times New Roman;
   font-size: 10px;
   
@@ -70,7 +85,7 @@ This paper presents the design and implementation of Dynamo, a highly available 
 
 just... use TeX to Write equation. 
 
-image = {
+@image = {
   default_size: 100% * 100%;
   
   caption-position: top;
@@ -83,7 +98,7 @@ image = {
 
 ![Figure.1.](https://imgs.xkcd.com/comics/standards.png)
 
-equation = {
+@equation = {
   ...
 }
 
@@ -92,3 +107,16 @@ equation = {
 ### display-equation
 
 $$f(x) = \sqrt[3]{2x} + \sqrt{x-2}$$
+
+### code
+
+```cpp@custom-style-name
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Hello World!";
+    return 0;
+}
+```
