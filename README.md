@@ -21,20 +21,23 @@ This is reason why we started this project, named **TypeDown**
 
 Typedown is fully-compative with Markdown. But in Typedown, you can use inline styling.
 
-```
+
 You can declare style. like this.
 
+```
 @h1 {
   font-family: Pretendard, Times New Roman;
   font-size: 24px;
 }
 
 # This is title with Pretendard font
+```
 
 Some of those is pre-declared. 
 
 @h1 ~ @h6, @text, @paper, @code, things are the examples.
 
+```
 @text {
   font-family: Pretendard, Times New Roman;
   font-size: 10px;
@@ -43,30 +46,32 @@ Some of those is pre-declared.
 @customized-syntax {
   font-family: Nanum Myoungjo;
 }
+```
 
 This is normal 10px pretendard text but ''you can use different style with two-single-quote (' x 2)''@customized-syntax
 
 You can import(use?) pre-reclared style-set using "using" keyword.
 
+```
 using style MLA;
+```
 
 "using" keyword overwrite all styles above.
 
 You can also use "using" keyword inside the style.
 
+```
 @paper {
   using paper A4;
 }
+```
 
 This can let you use A4 paper without typing 
 
+```
 @paper {
   paper-size: 210mm 297mm
 }
-
+```
 this.
 
-
-```
-
-There is pre-declared syntaxes like above `@h1`.
