@@ -98,11 +98,16 @@ just... use TeX to Write equation.
   }
 }
 
-![Figure.1.](https://imgs.xkcd.com/comics/standards.png)
+![this is a description](https://imgs.xkcd.com/comics/standards.png Figure.1.)
+                                                                    /* this is caption */
 
 @equation = {
   ...
 }
+
+@inline-equation
+
+@display-equation
 
 **inline** equation: $\mathcal A$
 
