@@ -22,18 +22,23 @@ This is reason why we started this project, named **TypeDown**
 Typedown is fully-compative with Markdown. But in Typedown, you can use inline styling.
 
 ```
-@h1 = {
+@h1 {
   font-family: Pretendard, Times New Roman;
+  font-size: 24px;
 }
+
+# This is title with Pretendard font
+
+@text {
+  font-family: Pretendard, Times New Roman;
+  font-size: 10px;
+}
+
+@customized-syntax {
+  font-family: Nanum Myoungjo;
+}
+
+This is normal 10px pretendard text but ''you can use different style with two-single-quote (' x 2)''@customized-syntax
 ```
 
 There is pre-declared syntaxes like above `@h1`.
-
-|Syntax|Declared as...|
-|---:|:---|
-|`#`|`@h1`|
-|`##`|`@h2`|
-|`###`|`@h3`|
-|`####`|`@h4`|
-|`#####`|`@h5`|
-|`######`|`@h6`|
