@@ -1,10 +1,10 @@
 # Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning
 
-### Abstract
+## Abstract
 
   *Very deep convolutional networks have been central to the largest advances in image recognition performance in recent years. One example is the Inception architecture that has been shown to achieve very good performance at rel-atively low computational cost. Recently, the introduction of residual connections in conjunction with a more tradi-tional architecture has yielded state-of-the-art performance in the 2015 ILSVRC challenge; its performance was similar to the latest generation Inception-v3 network. This raises the question of whether there are any beneﬁt in combining the Inception architecture with residual connections. Here we give clear empirical evidence that training with residual connections accelerates the training of Inception networks signiﬁcantly. There is also some evidence of residual Incep-tion networks outperforming similarly expensive Inception networks without residual connections by a thin margin. We also present several new streamlined architectures for both residual and non-residual Inception networks. These varia-tions improve the single-frame recognition performance on the ILSVRC 2012 classiﬁcation task signiﬁcantly. We fur-ther demonstrate how proper activation scaling stabilizes the training of very wide residual Inception networks. With an ensemble of three residual and one Inception-v4, we achieve 3.08% top-5 error on the test set of the ImageNet classiﬁcation (CLS) challenge.*
 
-#### 1. Introduction
+### 1. Introduction
 
   Since the 2012 ImageNet competition [11] winning en-try by Krizhevsky et al [8], their network “AlexNet” has been successfully applied to a larger variety of computer vision tasks, for example to object-detection [4], segmen-tation [10], human pose estimation [17], video classiﬁca-tion [7], object tracking [18], and superresolution [3]. These examples are but a few of all the applications to which deep convolutional networks have been very successfully applied ever since.
   In this work we study the combination of the two most recent ideas: Residual connections introduced by He et al. in [5] and the latest revised version of the Inception archi-tecture [15]. In [5], it is argued that residual connections are of inherent importance for training very deep architectures. Since Inception networks tend to be very deep, it is natu-ral to replace the ﬁlter concatenation stage of the Inception architecture with residual connections. This would allow Inception to reap all the beneﬁts of the residual approach while retaining its computational efﬁciency.
@@ -14,7 +14,7 @@
   In the last section, we study some of the classiﬁcation failures and conclude that the ensemble still has not reached the label noise of the annotations on this dataset and there is still room for improvement for the predictions.
 
 
-#### 2. Related Work
+### 2. Related Work
 
   Convolutional networks have become popular in large scale image recognition tasks after Krizhevsky et al. [8]. Some of the next important milestones were Network-in-network [9] by Lin et al., VGGNet [12] by Simonyan et al. and GoogLeNet (Inception-v1) [14] by Szegedy et al.
   Residual connection were introduced by He et al. in [5] in which they give convincing theoretical and practical ev-idence for the advantages of utilizing additive merging of signals both for image recognition, and especially for object detection. The authors argue that residual connections are inherently necessary for training very deep convolutional models. Our ﬁndings do not seem to support this view, at least for image recognition. However it might require more measurement points with deeper architectures to understand the true extent of beneﬁcial aspects offered by residual con-nections. In the experimental section we demonstrate that it is not very difﬁcult to train competitive very deep net-works without utilizing residual connections. However the use of residual connections seems to improve the training speed greatly, which is alone a great argument for their use.
