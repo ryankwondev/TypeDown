@@ -31,13 +31,6 @@ using reference IEEE;
   ...
 }
 
-/* really...? */
-@custom-style-name = {
-  /* um... code block? */
-  font-family: Consolas
-  font-size: 10px;
-}
-
 @h1 = { // when using '#'
   font-family: Times New Roman;
   font-size: 15px;
@@ -116,6 +109,25 @@ just... use TeX to Write equation.
 $$f(x) = \sqrt[3]{2x} + \sqrt{x-2}$$
 
 ### code
+
+@code = {
+  ...
+}
+
+@inline-code = {
+  ...
+}
+
+@display-code = {
+  ...
+}
+
+/* really...? */
+@custom-style-name = {
+  /* um... code block? */
+  font-family: Consolas
+  font-size: 10px;
+}
 
 ```cpp@custom-style-name
 #include <iostream>
